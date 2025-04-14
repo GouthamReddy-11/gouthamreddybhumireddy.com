@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+ok will do one thing i already have html portfolio which is live can we make it super creative 
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -138,12 +139,6 @@
       transform: scale(1.05);
     }
 
-    /* Ensuring button is above all other elements */
-    .resume-btn {
-      position: relative;
-      z-index: 100;
-    }
-
     .dark-mode {
       background: #111;
       color: #f4f7fa;
@@ -160,6 +155,19 @@
     .dark-mode footer {
       background: #222;
     }
+
+    /* Hide details in certifications and projects */
+    #projects ul li span.details,
+    #certifications ul li span.details {
+      display: none;
+      white-space: normal; /* Ensures the details break onto the next line */
+      margin-top: 10px; /* Adds space between title and details */
+    }
+
+    #projects ul li:hover span.details,
+    #certifications ul li:hover span.details {
+      display: block; /* Ensures details are shown as block (next line) */
+    }
   </style>
 </head>
 <body>
@@ -173,7 +181,8 @@
     <h1>Goutham Reddy Bhumireddy</h1>
     <p>Cybersecurity Graduate Student</p>
     <!-- Corrected Resume link for download -->
-<a href="https://drive.google.com/uc?id=1WWx4SHKeb8ozBHLxC6p6yBpM6yAubcGG&export=download" class="resume-btn" download="Goutham.pdf">Download Resume</a>
+<a href="https://drive.google.com/uc?export=download&id=1WWx4SHKeb8ozBHLxC6p6yBpM6yAubcGG" class="resume-btn" target="_blank">Download Resume</a>
+
   </header>
 
   <section id="about-me">
@@ -182,25 +191,25 @@
   </section>
 
   <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>University Of Central Missouri — Master’s In Cybersecurity and Information Assurance (08/2023–05/2025)</strong></li>
-      <li>Course Work: Web Application Security, Disaster Management, Information Assurance, Advanced Networking, Business Recovery, Risk Management.</li>
-    </ul>
-  </section>
+  <h2>Education</h2>
+  <ul>
+    <li><strong>University Of Central Missouri — Master’s In Cybersecurity and Information Assurance (08/2023–05/2025)</strong></li>
+    <li>Course Work: Web Application Security, Disaster Management, Information Assurance, Advanced Networking, Business Recovery, Risk Management.</li>
+  </ul>
+</section>
 
-  <section id="experience">
-    <h2>Professional Experience</h2>
-    <ul>
-      <li><strong>Smart Bridge – Salesforce Developer Catalyst Intern</strong>
-        <ul>
-          <li>Automated business workflows using Apex, improving process efficiency by 30%.</li>
-          <li>Developed secure API integrations to protect sensitive customer data.</li>
-          <li>Earned Apex Specialist & Process Automation Super Badges, demonstrating secure coding preferences.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
+<section id="experience">
+  <h2>Professional Experience</h2>
+  <ul>
+    <li><strong>Smart Bridge – Salesforce Developer Catalyst Intern</strong>
+      <ul>
+        <li>Automated business workflows using Apex, improving process efficiency by 30%.</li>
+        <li>Developed secure API integrations to protect sensitive customer data.</li>
+        <li>Earned Apex Specialist & Process Automation Super Badges, demonstrating secure coding preferences.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
   <section id="skills">
     <h2>Skills</h2>
@@ -267,18 +276,6 @@
 
     document.querySelectorAll('section').forEach(section => {
       observer.observe(section);
-    });
-
-    document.getElementById('download-btn').addEventListener('click', function(event) {
-      var resumeLink = this.getAttribute('href');
-      var xhr = new XMLHttpRequest();
-      xhr.open('HEAD', resumeLink, true);
-      xhr.onload = function() {
-        if (xhr.status !== 200) {
-          alert('Unable to find the file. Please try again later.');
-        }
-      };
-      xhr.send();
     });
   </script>
 </body>
